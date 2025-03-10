@@ -1,38 +1,38 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function () {
+    $(window).scroll(function () {
         // sticky navbar 
-        if(this.scrollY > 20){
+        if (this.scrollY > 20) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        
+
         // scroll-up button 
-        if(this.scrollY > 500){
+        if (this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
-    
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        
+
+    $('.scroll-up-btn').click(function () {
+        $('html').animate({ scrollTop: 0 });
+
         $('html').css("scrollBehavior", "auto");
     });
 
-    $('.navbar .menu li a').click(function(){
-        
+    $('.navbar .menu li a').click(function () {
+
         $('html').css("scrollBehavior", "smooth");
     });
 
     // toggle
-    $('.menu-btn').click(function(){
+    $('.menu-btn').click(function () {
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
-    
+
 
 });
 document.getElementById("download-link").addEventListener("click", function () {
@@ -41,14 +41,14 @@ document.getElementById("download-link").addEventListener("click", function () {
 
 
 window.onload = function () {
-    emailjs.init("b52NgaxoZ_gG25iie"); 
+    emailjs.init("b52NgaxoZ_gG25iie");
     console.log("EmailJS initialized successfully.");
 };
 
 function sendMail(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    
+
     let nameValue = document.getElementById("name").value;
     let emailValue = document.getElementById("email").value;
     let messageValue = document.getElementById("message").value;
@@ -64,14 +64,14 @@ function sendMail(event) {
         message: messageValue
     };
 
-    
+
     if (!emailjs) {
         console.error(" EmailJS is not loaded.");
         alert("Email service is unavailable. Please try again later.");
         return;
     }
 
-    
+
     emailjs.send("service_lzbac4x", "template_yr2zo6k", params)
         .then(response => {
             console.log("Message sent successfully!", response);
