@@ -42,7 +42,7 @@ document.getElementById("download-link").addEventListener("click", function () {
 // Ensure Email.js is initialized when the page loads
 window.onload = function () {
     emailjs.init("b52NgaxoZ_gG25iie"); // Replace with your actual Public Key
-    console.log("✅ EmailJS initialized successfully.");
+    console.log("EmailJS initialized successfully.");
 };
 
 function sendMail(event) {
@@ -53,7 +53,7 @@ function sendMail(event) {
     let emailValue = document.getElementById("email").value;
     let messageValue = document.getElementById("message").value;
 
-    console.log("📩 Sending Message...");
+    console.log(" Sending Message...");
     console.log("Name:", nameValue);
     console.log("Email:", emailValue);
     console.log("Message:", messageValue);
@@ -66,7 +66,7 @@ function sendMail(event) {
 
     // Ensure EmailJS is loaded before sending
     if (!emailjs) {
-        console.error("❌ EmailJS is not loaded.");
+        console.error(" EmailJS is not loaded.");
         alert("Email service is unavailable. Please try again later.");
         return;
     }
@@ -74,12 +74,12 @@ function sendMail(event) {
     // Send email using Email.js
     emailjs.send("service_lzbac4x", "template_yr2zo6k", params)
         .then(response => {
-            console.log("✅ Message sent successfully!", response);
+            console.log("Message sent successfully!", response);
             alert("Message sent successfully! Check your email.");
             document.getElementById("contact-form").reset();
         })
         .catch(error => {
-            console.error("❌ Failed to send message:", error);
+            console.error(" Failed to send message:", error);
             alert("Failed to send message. Please check the console for errors.");
         });
 }
